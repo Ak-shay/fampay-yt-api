@@ -7,7 +7,7 @@ const { checkDBConnection } = require('./utils/common');
 const videoRoutes = require('./routes/videoRoutes');
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.NODE_DOCKER_PORT || 8080;
 
 checkDBConnection();
 
