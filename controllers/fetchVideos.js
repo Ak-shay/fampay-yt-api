@@ -2,7 +2,7 @@ require('dotenv').config();
 const { google } = require('googleapis');
 
 const PRE_DEFINED_QUERY = 'football';
-const MAX_RESULTS_PER_PAGE = 5; // accepted range: 1 to 50; default: 5
+const MAX_RESULTS_PER_PAGE = 50; // accepted range: 1 to 50; default: 5
 
 const youtubeClient = google.youtube({
    version: 'v3',
