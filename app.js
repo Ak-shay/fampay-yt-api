@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require("express");
 const { uploadVideoCronJob } = require("./controllers/uploadVideos");
+const { getAllVideos } = require("./controllers/videoController");
 const { Video } = require('./models/video');
 const { checkDBConnection } = require('./utils/checkDBConnection');
 
@@ -10,8 +11,8 @@ const port = process.env.PORT;
 
 checkDBConnection();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/getAllVideos?:page", (req, res) => {
+  getAllVideos(req, res);
 });
 
 app.listen(port, () => {
