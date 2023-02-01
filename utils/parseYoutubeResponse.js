@@ -5,8 +5,8 @@ exports.parseYTResponse = async (rawYTReponse) => {
             _id: video.id.videoId,
             title: video.snippet.title,
             description: video.snippet.description,
-            publishedData: video.snippet.publishedAt,
-            thumbnailUrl: video.snippet.thumbnails.default.url
+            published_date: video.snippet.publishedAt,
+            thumbnail: video.snippet.thumbnails.default.url
         }
         parsedVideos.push(parsedVideo);
     })
