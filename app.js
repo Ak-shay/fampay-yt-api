@@ -2,18 +2,17 @@ require('dotenv').config();
 
 const express = require("express");
 const { uploadVideoCronJob } = require("./controllers/uploadVideos");
-const { getAllVideos } = require("./controllers/videoController");
 const { Video } = require('./models/video');
-const { checkDBConnection } = require('./utils/checkDBConnection');
+const { checkDBConnection } = require('./utils/common');
+const videoRoutes = require('./routes/videoRoutes');
 
 const app = express();
 const port = process.env.PORT;
 
 checkDBConnection();
 
-app.get("/getAllVideos?:page", (req, res) => {
-  getAllVideos(req, res);
-});
+// Route middlewares
+app.use('/api/v1/', videoRoutes);
 
 app.listen(port, () => {
   console.log(`FamPay youtube app listening on port ${port}!`);
